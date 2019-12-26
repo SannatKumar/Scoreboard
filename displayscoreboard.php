@@ -29,6 +29,8 @@ $queryHandle = $connect->prepare($userQueryString);
 $queryHandle->execute();
 $teamAtotalscore = 0;
 $teamBtotalscore = 0;
+$avalue = 0;
+$bvalue = 0;
 $teamAplayer = array();
 $teamBplayer = array();
 $teamAscore = array();
@@ -133,24 +135,21 @@ while ($row = $queryHandle->fetch()) {
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-            </tr>
+        <?php
+            foreach ($teamAplayer as $player) {
+               
+              echo '<tr>';
+              echo
+              '<th scope="row">'.$avalue.'</th>';
+              echo '<td>'.$teamA.'</td>';
+              echo '<td>'.$player.'</td>';
+              echo '<td>'.$teamAscore[$avalue].'</td>';
+            echo '</tr>';
+            $avalue++;
+          }
+            ?>
+         
+            
         </tbody>
     </table>
 
@@ -164,27 +163,21 @@ while ($row = $queryHandle->fetch()) {
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-            </tr>
+        <?php
+              foreach ($teamBplayer as $player) {
+               
+                echo '<tr>';
+                echo'<th scope="row">'.$bvalue.'</th>';
+                echo '<td>'.$teamB.'</td>';
+                echo '<td>'.$player.'</td>';
+                echo '<td>'.$teamBscore[$bvalue].'</td>';
+              echo '</tr>';
+              $bvalue++;
+            }
+              ?>
         </tbody>
     </table>
-    <form action = "insertteam.php" method = "post">
+    <form action = "action_page.php" method = "post">
         <div class="form-group">
         <input type="text" name = "teamName" class="form-control column" id="exampleFormControlInput1" placeholder="Team Name">
         <input type="text" name = "scorer" class="form-control" id="exampleFormControlInput1" placeholder="Player Name">
