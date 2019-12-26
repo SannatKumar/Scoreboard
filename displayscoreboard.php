@@ -39,11 +39,11 @@ while ($row = $queryHandle->fetch()) {
     $teamName = $row['team'];
 
 
-    if ($teamName == $teamA) {
+    if ((strtolower($teamName)) == (strtolower($teamA))) {
         $teamAtotalscore++;
         $teamAplayer[] = $row['player'];
         $teamAscore[] = $row['score'];
-    } elseif (($teamName == $teamB)) {
+    } elseif ((strtolower($teamName)) == (strtolower($teamB))) {
         $teamBtotalscore++;
         $teamBplayer[] = $row['player'];
         $teamBscore[] = $row['score'];
@@ -51,6 +51,7 @@ while ($row = $queryHandle->fetch()) {
 }
 
 ?>
+
 
 <!doctype html>
 <html lang="en">
@@ -69,30 +70,35 @@ while ($row = $queryHandle->fetch()) {
             background: skyblue;
             height: 150px;
         }
+
         .container .box {
             width: 1024px;
             display: table;
         }
+
         .container .box .box-row {
             display: table-row;
-            }
+        }
+
         .container .box .box-cell {
             display: table-cell;
             width: 50%;
             padding: 10px;
         }
-        
-        .form-group{
+
+        .form-group {
             width: 100%;
             padding-bottom: 10%;
             padding-left: 5%;
             padding-right: 5%;
         }
-        .form-control{
+
+        .form-control {
             float:left;
-            width: 32%;
+            width: 25%;
         }
-        .form-group btn btn-primary{
+
+        .form-group btn btn-primary {
             margin-top: 5%;
         }
     </style>
@@ -135,21 +141,21 @@ while ($row = $queryHandle->fetch()) {
             </tr>
         </thead>
         <tbody>
-        <?php
+            <?php
             foreach ($teamAplayer as $player) {
-               
-              echo '<tr>';
-              echo
-              '<th scope="row">'.$avalue.'</th>';
-              echo '<td>'.$teamA.'</td>';
-              echo '<td>'.$player.'</td>';
-              echo '<td>'.$teamAscore[$avalue].'</td>';
-            echo '</tr>';
-            $avalue++;
-          }
+
+                echo '<tr>';
+                echo
+                    '<th scope="row">' . $avalue . '</th>';
+                echo '<td>' . $teamA . '</td>';
+                echo '<td>' . $player . '</td>';
+                echo '<td>' . $teamAscore[$avalue] . '</td>';
+                echo '</tr>';
+                $avalue++;
+            }
             ?>
-         
-            
+
+
         </tbody>
     </table>
 
@@ -163,26 +169,29 @@ while ($row = $queryHandle->fetch()) {
             </tr>
         </thead>
         <tbody>
-        <?php
-              foreach ($teamBplayer as $player) {
-               
+            <?php
+            foreach ($teamBplayer as $player) {
+
                 echo '<tr>';
-                echo'<th scope="row">'.$bvalue.'</th>';
-                echo '<td>'.$teamB.'</td>';
-                echo '<td>'.$player.'</td>';
-                echo '<td>'.$teamBscore[$bvalue].'</td>';
-              echo '</tr>';
-              $bvalue++;
+                echo '<th scope="row">' . $bvalue . '</th>';
+                echo '<td>' . $teamB . '</td>';
+                echo '<td>' . $player . '</td>';
+                echo '<td>' . $teamBscore[$bvalue] . '</td>';
+                echo '</tr>';
+                $bvalue++;
             }
-              ?>
+            ?>
         </tbody>
     </table>
-    <form action = "action_page.php" method = "post">
+    <form action="action_page.php" method="post">
         <div class="form-group">
-        <input type="text" name = "teamName" class="form-control column" id="exampleFormControlInput1" placeholder="Team Name">
-        <input type="text" name = "scorer" class="form-control" id="exampleFormControlInput1" placeholder="Player Name">
-        <input type="number" name = "score" class="form-control" id="exampleFormControlInput1" placeholder="Score"><br /><br />
-        <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
+
+            
+            <input type="text" name="teamName" class="form-control" id="exampleFormControlInput1" placeholder="Team Name">
+            <!--<input type="text" name = "teamName" class="form-control column" id="exampleFormControlInput1" placeholder="Team Name">-->
+            <input type="text" name="scorer" class="form-control" id="exampleFormControlInput1" placeholder="Player Name">
+            <input type="number" name="score" class="form-control" id="exampleFormControlInput1" placeholder="Score"><br /><br />
+            <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
         </div>
     </form>
 
