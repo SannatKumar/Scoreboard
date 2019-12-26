@@ -142,16 +142,17 @@ while ($row = $queryHandle->fetch()) {
         </thead>
         <tbody>
             <?php
+            $Snvalue =1;
             foreach ($teamAplayer as $player) {
-
                 echo '<tr>';
                 echo
-                    '<th scope="row">' . $avalue . '</th>';
+                    '<th scope="row">' . $Snvalue. '</th>';
                 echo '<td>' . $teamA . '</td>';
                 echo '<td>' . $player . '</td>';
                 echo '<td>' . $teamAscore[$avalue] . '</td>';
                 echo '</tr>';
                 $avalue++;
+                $Snvalue++;
             }
             ?>
 
@@ -170,15 +171,18 @@ while ($row = $queryHandle->fetch()) {
         </thead>
         <tbody>
             <?php
+            $bsnvalue = 1;
             foreach ($teamBplayer as $player) {
+                
 
                 echo '<tr>';
-                echo '<th scope="row">' . $bvalue . '</th>';
+                echo '<th scope="row">' . $bsnvalue . '</th>';
                 echo '<td>' . $teamB . '</td>';
                 echo '<td>' . $player . '</td>';
                 echo '<td>' . $teamBscore[$bvalue] . '</td>';
                 echo '</tr>';
                 $bvalue++;
+                $bsnvalue++;
             }
             ?>
         </tbody>
