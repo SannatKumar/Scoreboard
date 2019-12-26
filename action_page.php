@@ -15,18 +15,21 @@
   	catch(PDOException $e) {
       		echo "Connection failed: " . $e->getMessage();
           }
-?>
-<?php
-	$teamaName = $_POST['teamname'];
-	$playerName = $_POST['playername'];
+
+	//Assign the value from the dashboard page to the database
+	$scorerTeam = $_POST['teamName'];
+	$playerName = $_POST['scorer'];
 	$score = $_POST['score'];
-	
+
+	//Executing the insert statement to store the data into the database
+
 	$userQueryString = "INSERT INTO `gamedetails`(`team`, `player`, `score`) VALUES (?,?,?)";
 	$queryHandle = $connect->prepare($userQueryString);
-	$queryHandle->bindParam(1, $teamaName);
+	$queryHandle->bindParam(1, $scorerTeam);
 	$queryHandle->bindParam(2, $playerName);
 	$queryHandle->bindParam(3, $score);
 	$queryHandle->execute();
-    
+	header("Location: displayscoreboard.php");
+
 ?>
 
