@@ -1,4 +1,4 @@
-CREATE DATABASE volleyball;
+CREATE DATABASE scoreboard;
 CREATE TABLE details(
 	id int,
 	name varchar(50),
