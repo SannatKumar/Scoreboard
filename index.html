@@ -9,6 +9,9 @@
         background: skyblue;
         height: 250px;
       }
+      #teamentrysubmit{
+        margin-left: 45%;
+      }
       </style>
   </head>
   <body>
@@ -16,14 +19,28 @@
       <h1 style="text-align: center;">Dashboard</h1>
     </header>
       <form action ="team_action.php" method="post">
-        <div class="form-group">
-          Team Name: <input type="text" name = "teama" class="form-control column" id="exampleFormControlInput1" placeholder="Team Name">
-          <br /><br />
-        </div>
-        <div class="form-group">
-          Team Name: <input type="text" name = "teamb" class="form-control" id="exampleFormControlInput1" placeholder="Player Name"><br /><br />
-        </div>
-        <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                Team Name: <input type="text" name = "teama" class="form-control column" id="exampleFormControlInput1" placeholder="First Team Name">
+                <br /><br />
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                Team Name: <input type="text" name = "teamb" class="form-control" id="exampleFormControlInput1" placeholder="Second Team Name"><br /><br />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <button type="submit" value="Submit" class="btn btn-primary " id = "teamentrysubmit">Submit</button>
+            </div>
+            </div>
+        
+        
+        
       </form>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -31,3 +48,4 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   </body>
 </html>
+

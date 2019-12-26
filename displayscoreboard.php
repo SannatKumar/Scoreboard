@@ -48,8 +48,11 @@ while ($row = $queryHandle->fetch()) {
         $teamBplayer[] = $row['player'];
         $teamBscore[] = $row['score'];
     }
+    $scorea = 0;
+    $scorea = array_sum($teamAscore);
+    $scoreb = 0;
+    $scoreb = array_sum($teamBscore);
 }
-
 ?>
 
 
@@ -88,18 +91,26 @@ while ($row = $queryHandle->fetch()) {
 
         .form-group {
             width: 100%;
-            padding-bottom: 10%;
             padding-left: 5%;
             padding-right: 5%;
         }
 
         .form-control {
-            float:left;
-            width: 25%;
+            float: left;
+            width: 20%;
         }
 
         .form-group btn btn-primary {
             margin-top: 5%;
+        }
+
+        #exampleFormControlInputp {
+            width: 400px;
+        }
+
+        #submitbutton {
+            width: 50%;
+            margin-left: 25%;
         }
     </style>
 </head>
@@ -114,7 +125,7 @@ while ($row = $queryHandle->fetch()) {
                         <?php echo htmlspecialchars($teamA); ?>
                         <h1>
                             <?php
-                            echo $teamAtotalscore;
+                            echo $scorea;
                             ?>
                         </h1>
                     </div>
@@ -124,79 +135,119 @@ while ($row = $queryHandle->fetch()) {
                         ?>
                         <h1>
                             <?php
-                            echo $teamBtotalscore;
+                            echo $scoreb;
                             ?>
                         </h1>
                     </div>
                 </div>
             </div>
     </header>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">S.no</th>
-                <th scope="col">Team Name</th>
-                <th scope="col">Player name</th>
-                <th scope="col">Score</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            $Snvalue =1;
-            foreach ($teamAplayer as $player) {
-                echo '<tr>';
-                echo
-                    '<th scope="row">' . $Snvalue. '</th>';
-                echo '<td>' . $teamA . '</td>';
-                echo '<td>' . $player . '</td>';
-                echo '<td>' . $teamAscore[$avalue] . '</td>';
-                echo '</tr>';
-                $avalue++;
-                $Snvalue++;
-            }
-            ?>
+    <div class="container px-lg-5">
+        <div class="row mx-lg-n5">
+            <div class="col py-3 px-lg-5 border bg-light">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">S.no</th>
+                            <th scope="col">Team Name</th>
+                            <th scope="col">Player name</th>
+                            <th scope="col">Score <i class="fa fa-arrow-down" aria-hidden="true"></i></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $Snvalue = 1;
+                        foreach ($teamAplayer as $player) {
+                            echo '<tr>';
+                            echo
+                                '<th scope="row">' . $Snvalue . '</th>';
+                            echo '<td>' . $teamA . '</td>';
+                            echo '<td>' . $player . '</td>';
+                            echo '<td>' . $teamAscore[$avalue] . '</td>';
+                            echo '</tr>';
+                            $avalue++;
+                            $Snvalue++;
+                        }
+                        ?>
 
 
-        </tbody>
-    </table>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col py-3 px-lg-5 border bg-light">
+                <table class="table table-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">S.no</th>
+                            <th scope="col">Team Name</th>
+                            <th scope="col">Player Name</th>
+                            <th scope="col">Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $bsnvalue = 1;
+                        foreach ($teamBplayer as $player) {
 
-    <table class="table table-dark">
-        <thead>
-            <tr>
-                <th scope="col">S.no</th>
-                <th scope="col">Team Name</th>
-                <th scope="col">Player Name</th>
-                <th scope="col">Score</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            $bsnvalue = 1;
-            foreach ($teamBplayer as $player) {
-                
 
-                echo '<tr>';
-                echo '<th scope="row">' . $bsnvalue . '</th>';
-                echo '<td>' . $teamB . '</td>';
-                echo '<td>' . $player . '</td>';
-                echo '<td>' . $teamBscore[$bvalue] . '</td>';
-                echo '</tr>';
-                $bvalue++;
-                $bsnvalue++;
-            }
-            ?>
-        </tbody>
-    </table>
+                            echo '<tr>';
+                            echo '<th scope="row">' . $bsnvalue . '</th>';
+                            echo '<td>' . $teamB . '</td>';
+                            echo '<td>' . $player . '</td>';
+                            echo '<td>' . $teamBscore[$bvalue] . '</td>';
+                            echo '</tr>';
+                            $bvalue++;
+                            $bsnvalue++;
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
     <form action="action_page.php" method="post">
         <div class="form-group">
+            <div class="container px-lg-5">
+                <div class="row mx-lg-n5">
+                    <div class="col py-3 px-lg-5 border bg-light">
+                        <div>
+                            <input type="radio" name="teamName" value="<?php echo htmlspecialchars($teamA); ?>" class="form-control" id="exampleFormControlInputr1" checked><?php echo htmlspecialchars($teamA); ?><br />
+                        </div>
+                    </div>
+                    <div class="col py-3 px-lg-5 border bg-light">
+                        <div>
+                            <input type="radio" name="teamName" value="<?php echo htmlspecialchars($teamB); ?>" class="form-control" id="exampleFormControlInputr2"><?php echo htmlspecialchars($teamB); ?><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-            
-            <input type="text" name="teamName" class="form-control" id="exampleFormControlInput1" placeholder="Team Name">
-            <!--<input type="text" name = "teamName" class="form-control column" id="exampleFormControlInput1" placeholder="Team Name">-->
-            <input type="text" name="scorer" class="form-control" id="exampleFormControlInput1" placeholder="Player Name">
-            <input type="number" name="score" class="form-control" id="exampleFormControlInput1" placeholder="Score"><br /><br />
-            <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
-        </div>
+
+            <br>
+
+
+            <div class="container px-lg-5">
+                <div class="row mx-lg-n5">
+                    <div class="col py-3 px-lg-5 border bg-light"><input type="text" name="scorer" class="form-control" id="exampleFormControlInputp" placeholder="Player Name"></div>
+                    <div class="col py-3 px-lg-5 border bg-light"><input type="number" name="score"  placeholder="Score"><br /><br /></div>
+                </div>
+            </div>
+            <br /><br />
+            <br />
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+
+                        <button type="submit" value="Submit" class="btn btn-primary" id="submitbutton">Submit</button>
+                    </div>
+                </div>
+
+
+
+            </div>
     </form>
 
     <!-- Optional JavaScript -->

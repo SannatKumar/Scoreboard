@@ -19,7 +19,10 @@
 	//Assign the value from the dashboard page to the database
 	$gameid = 1;
 	$firstTeam = $_POST['teama'];
+	echo $firstTeam;
+
 	$secondTeam = $_POST['teamb'];
+	echo $secondTeam;
 
 	//Executing the insert statement to store the data into the database
 
