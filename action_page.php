@@ -22,9 +22,9 @@
 	$score = $_POST['score'];
 
 	$userQueryString = "SELECT * FROM gamedetails";
-$queryHandle = $connect->prepare($userQueryString);
-$queryHandle->execute();
-$count = 0;
+	$queryHandle = $connect->prepare($userQueryString);
+	$queryHandle->execute();
+	$count = 0;
 while ($row = $queryHandle->fetch()) {
 	if($row['player'] == $playerName){
 		$count ++ ;	
@@ -46,14 +46,7 @@ else{
 	$queryHandle->bindParam(3, $score);
 	$queryHandle->execute();
 }
-
-
-
-
-
-
-
-	//Executing the insert statement to store the data into the database
+//Executing the insert statement to store the data into the database
 
 	
 	header("Location: displayscoreboard.php");
