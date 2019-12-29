@@ -1,6 +1,21 @@
-<?php
 
-require 'config.php';
+<?php
+//Database credentials
+    $servername = "localhost";
+  	$dusername = "root";
+  	$dpassword = "";
+  	$dbname = "scoreboard";
+
+  	try {
+      		$connect = new PDO("mysql:host=$servername; dbname=$dbname", $dusername, $dpassword);
+      		// set the PDO error mode to exception
+      		$connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      		//echo "Connected successfully";
+      	}
+  	catch(PDOException $e) {
+      		echo "Connection failed: " . $e->getMessage();
+          }
+
 //sql query assign and execution 
 $gameQuery = "SELECT * FROM game";
 $queryHandle = $connect->prepare($gameQuery);
@@ -212,7 +227,7 @@ while ($row = $queryHandle->fetch()) {
                 <div class="row mx-lg-n5">
                     <div class="col py-3 px-lg-5 border bg-light">
                         <div>
-                            <input type="radio" name="teamName" value="<?php echo htmlspecialchars($teamA); ?>" class="form-control" id="exampleFormControlInputr1" checked><?php echo htmlspecialchars($teamA); ?><br />
+                            <input type="radio" name="teamName" value="<?php echo htmlspecialchars($teamA); ?>" class="form-control" id="exampleFormControlInputr1" ><?php echo htmlspecialchars($teamA); ?><br />
                         </div>
                     </div>
                     <div class="col py-3 px-lg-5 border bg-light">
