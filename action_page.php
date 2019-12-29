@@ -21,6 +21,8 @@
 	$playerName =strtolower( $_POST['scorer']);
 	$score = $_POST['score'];
 
+	//SQL query statement execution
+
 	$userQueryString = "SELECT * FROM gamedetails";
 	$queryHandle = $connect->prepare($userQueryString);
 	$queryHandle->execute();
@@ -46,8 +48,6 @@ else{
 	$queryHandle->bindParam(3, $score);
 	$queryHandle->execute();
 }
-//Executing the insert statement to store the data into the database
-
 	
 	header("Location: displayscoreboard.php");
 
