@@ -1,9 +1,9 @@
 # Scoreboard
-Scoreboard that displays the two team details
+Scoreboard that displays the two team details.
 
 Description
 
-This is a scoreboard for two teams. In the first page of the site, two team names are taken as input and the page is redirected to scoreboard.
+This is a basic scoreboard for two teams. In the first page of the site, two team names are taken as input and the page is redirected to scoreboard.
 Scoreboard displays the team name and also updates the player score. It provides with input field 'Player name' and 'score', radio buttons to choose the team name along with a submit button. After it is submitted, the values are displayed on the same page in score ascending order.
 
 
