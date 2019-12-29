@@ -1,0 +1,17 @@
+// To create database
+CREATE DATABASE scoreboard;
+
+//To create table gamedetails
+CREATE TABLE `scoreboard`.`gamedetails` ( 
+	id INT NOT NULL , 
+	team VARCHAR(50) NOT NULL ,
+	 player VARCHAR(50) NOT NULL , 
+	 `score` INT NOT NULL ) 
+	 ENGINE = InnoDB;
+
+//To create table game
+CREATE TABLE `scoreboard`.`game` ( 
+	gameid INT NOT NULL , 
+	teama VARCHAR(50) NOT NULL ,
+	 teamB VARCHAR(50) NOT NULL  ) 
+	 ENGINE = InnoDB;
