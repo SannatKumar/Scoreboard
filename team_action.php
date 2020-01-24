@@ -9,8 +9,10 @@
 
 	//Executing the insert statement to store the data into the database
 
-	//$userQueryString = "INSERT INTO `game`(`gameid`, `teama`, `teamb`) VALUES (?,?,?)";
+	
 	$userQueryString = "UPDATE `game` SET `gameid`= ?,`teama`= ?,`teamb`= ? WHERE gameid = 1";
+	//$userQueryString = "INSERT INTO `game`(`teama`, `teamb`) VALUES (?,?)";
+
 	$queryHandle = $connect->prepare($userQueryString);
 	$queryHandle->bindParam(1, $gameid);
 	$queryHandle->bindParam(2, $firstTeam);
