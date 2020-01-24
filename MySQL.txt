@@ -13,5 +13,5 @@ CREATE TABLE `scoreboard`.`gamedetails` (
 CREATE TABLE `scoreboard`.`game` ( 
 	gameid INT NOT NULL , 
 	teama VARCHAR(50) NOT NULL ,
-	 teamB VARCHAR(50) NOT NULL  ) 
+	 teamb VARCHAR(50) NOT NULL  ) 
 	 ENGINE = InnoDB;
