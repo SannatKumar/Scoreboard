@@ -45,6 +45,9 @@ $teamBplayer = array();
 $teamAscore = array();
 $teamBscore = array();
 
+$scorea = 0;
+$scoreb = 0;
+
 //fetching the data using while loop
 while ($row = $queryHandle->fetch()) {
     $teamName = $row['team'];
@@ -61,9 +64,7 @@ while ($row = $queryHandle->fetch()) {
     }
 
     // function to add the array
-    $scorea = 0;
     $scorea = array_sum($teamAscore);
-    $scoreb = 0;
     $scoreb = array_sum($teamBscore);
 }
 ?>
